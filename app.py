@@ -107,9 +107,6 @@ def calcular_transacciones(saldos):
     deudores = [(p, s) for p, s in saldos.items() if s < 0]
     acreedores = [(p, s) for p, s in saldos.items() if s > 0]
 
-    print("Deudores:", deudores)  # Añadir para debugging
-    print("Acreedores:", acreedores)  # Añadir para debugging
-
     transacciones = []
 
     while deudores and acreedores:
@@ -117,7 +114,7 @@ def calcular_transacciones(saldos):
         acreedor, credito = acreedores.pop(0)
 
         pago = min(-deuda, credito)
-        transacciones.append((deudor, acreedor, pago))
+        transacciones.append((deudor, acreedor, f"${pago:.2f}"))  # Formatear con $ y 2 decimales
 
         deuda += pago
         credito -= pago
@@ -128,6 +125,7 @@ def calcular_transacciones(saldos):
             acreedores.insert(0, (acreedor, credito))
 
     return transacciones
+
 
 
 if __name__ == '__main__':

@@ -1,0 +1,70 @@
+/* styles.css */
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1, h2 {
+    color: #00a859; /* Color verde Racing Club */
+}
+
+/* Estilos del formulario */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #00a859; /* Color verde Racing Club */
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #008d3d; /* Color verde más oscuro */
+}
+
+/* Estilos de las personas */
+.beneficiario-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.beneficiario-label {
+    margin-right: 10px;
+    flex-grow: 1;
+}
+
+.beneficiario-form {
+    display: inline;
+}
+
+.beneficiario-form input[type="submit"] {
+    background-color: #d9534f; /* Rojo para el botón de eliminar */
+    color: #ffffff;
+}
+
+.beneficiario-form input[type="submit"]:hover {
+    background-color: #c9302c; /* Rojo más oscuro */
+}
