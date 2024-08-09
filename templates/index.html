@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reparto de Gastos</title>
+</head>
+<body>
+    <h1>Reparto de Gastos</h1>
+
+    <h2>Agregar Persona</h2>
+    <form action="{{ url_for('agregar_persona') }}" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre de la persona" required>
+        <input type="submit" value="Agregar">
+    </form>
+
+    <h2>Agregar Gasto</h2>
+    <form action="{{ url_for('index') }}" method="POST">
+        <input type="number" name="cantidad" step="0.01" placeholder="Cantidad gastada" required>
+        
+        <label for="pagador">¿Quién pagó?</label>
+        <select name="pagador" required>
+            {% for persona in personas %}
+                <option value="{{ persona }}">{{ persona }}</option>
+            {% endfor %}
+        </select>
+        
+        <label>¿Con quién se reparte?</label><br>
+        {% for persona in personas %}
+            <input type="checkbox" name="beneficiarios" value="{{ persona }}">{{ persona }}<br>
+        {% endfor %}
+        
+        <input type="submit" value="Agregar Gasto">
+    </form>
+
+    <h2>Transacciones</h2>
+    <ul>
+        {% for deudor, acreedor, pago in transacciones %}
+            <li>{{ deudor }} le debe a {{ acreedor }} {{ pago }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Historial de Gastos</h2>
+    <ul>
+        {% for gasto in gastos %}
+            <li>{{ gasto.pagador }} pagó {{ gasto.cantidad }} y lo repartió entre {{ gasto.beneficiarios | join(', ') }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

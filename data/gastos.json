@@ -1,0 +1,10 @@
+{
+    "personas": ["Juan", "María", "Pedro"],
+    "gastos": [
+        {
+            "cantidad": 100.0,
+            "pagador": "Juan",
+            "beneficiarios": ["Juan", "María", "Pedro"]
+        }
+    ]
+}
