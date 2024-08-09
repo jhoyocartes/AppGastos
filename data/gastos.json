@@ -1,10 +1,59 @@
 {
-    "personas": ["Juan", "María", "Pedro"],
+    "personas": [
+        "Juan",
+        "Mar\u00c3\u00ada",
+        "Pedro",
+        "Julio",
+        "Eric",
+        "Mauro"
+    ],
     "gastos": [
         {
             "cantidad": 100.0,
             "pagador": "Juan",
-            "beneficiarios": ["Juan", "María", "Pedro"]
+            "beneficiarios": [
+                "Juan",
+                "Mar\u00c3\u00ada",
+                "Pedro"
+            ]
+        },
+        {
+            "cantidad": 9000.0,
+            "pagador": "Julio",
+            "beneficiarios": [
+                "Eric"
+            ]
+        },
+        {
+            "cantidad": 3700.0,
+            "pagador": "Eric",
+            "beneficiarios": [
+                "Julio",
+                "Eric"
+            ]
+        },
+        {
+            "cantidad": 2600.0,
+            "pagador": "Julio",
+            "beneficiarios": [
+                "Julio",
+                "Eric",
+                "Mauro"
+            ]
+        },
+        {
+            "cantidad": 10500.0,
+            "pagador": "Julio",
+            "beneficiarios": [
+                "Eric"
+            ]
+        },
+        {
+            "cantidad": 10500.0,
+            "pagador": "Julio",
+            "beneficiarios": [
+                "Mauro"
+            ]
         }
     ]
 }

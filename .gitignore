@@ -1,0 +1,20 @@
+# Entorno Virtual
+venv/
+
+# Archivos de configuración de Python
+*.pyc
+__pycache__/
+
+# Archivos de configuración de IDE
+.vscode/
+.idea/
+
+# Archivos de configuración del sistema
+.DS_Store
+.env
+
+# Archivos de datos
+data/gastos.json
+
+# Logs
+*.log
