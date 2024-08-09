@@ -62,6 +62,25 @@ def agregar_persona():
     guardar_datos(datos)
     return redirect(url_for('index'))
 
+# Ruta para eliminar personas
+
+
+@app.route('/eliminar_persona', methods=['POST'])
+def eliminar_persona():
+    nombre = request.form['nombre']
+    datos = cargar_datos()
+
+    if nombre in datos['personas']:
+        datos['personas'].remove(nombre)
+        # Eliminar gastos relacionados
+        datos['gastos'] = [
+            gasto for gasto in datos['gastos']
+            if gasto['pagador'] != nombre and nombre not in gasto['beneficiarios']
+        ]
+
+    guardar_datos(datos)
+    return redirect(url_for('index'))
+
 # Función para calcular saldos
 
 
@@ -69,10 +88,15 @@ def calcular_saldos(personas, gastos):
     saldos = {persona: 0 for persona in personas}
 
     for gasto in gastos:
+        if gasto['pagador'] is None or not gasto['beneficiarios']:
+            continue  # Omitir gastos con pagador None o sin beneficiarios
+
         monto_por_persona = gasto['cantidad'] / len(gasto['beneficiarios'])
         for beneficiario in gasto['beneficiarios']:
-            saldos[beneficiario] -= monto_por_persona
-        saldos[gasto['pagador']] += gasto['cantidad']
+            if beneficiario in saldos:
+                saldos[beneficiario] -= monto_por_persona
+        if gasto['pagador'] in saldos:
+            saldos[gasto['pagador']] += gasto['cantidad']
 
     return saldos
 

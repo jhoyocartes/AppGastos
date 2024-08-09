@@ -1,22 +1,10 @@
 {
     "personas": [
-        "Juan",
-        "Mar\u00c3\u00ada",
-        "Pedro",
         "Julio",
         "Eric",
         "Mauro"
     ],
     "gastos": [
-        {
-            "cantidad": 100.0,
-            "pagador": "Juan",
-            "beneficiarios": [
-                "Juan",
-                "Mar\u00c3\u00ada",
-                "Pedro"
-            ]
-        },
         {
             "cantidad": 9000.0,
             "pagador": "Julio",
