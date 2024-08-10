@@ -10,8 +10,8 @@ COPY . /app
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Create the data directory and gastos.json file
-RUN mkdir -p data && echo '{}' > data/gastos.json
+# Run the initialization script
+RUN python init_data.py
 
 # Make port 5000 available to the world outside this container
 EXPOSE 5000
