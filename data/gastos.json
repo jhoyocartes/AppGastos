@@ -1,47 +1,23 @@
 {
     "personas": [
         "Julio",
-        "Eric",
-        "Mauro",
         "Aldichan"
     ],
     "gastos": [
         {
-            "cantidad": 9000.0,
-            "pagador": "Julio",
-            "beneficiarios": [
-                "Eric"
-            ]
-        },
-        {
-            "cantidad": 3700.0,
-            "pagador": "Eric",
+            "cantidad": 25664.0,
+            "pagador": "Aldichan",
             "beneficiarios": [
                 "Julio",
-                "Eric"
+                "Aldichan"
             ]
         },
         {
-            "cantidad": 2600.0,
-            "pagador": "Julio",
+            "cantidad": 26000.0,
+            "pagador": "Aldichan",
             "beneficiarios": [
                 "Julio",
-                "Eric",
-                "Mauro"
-            ]
-        },
-        {
-            "cantidad": 10500.0,
-            "pagador": "Julio",
-            "beneficiarios": [
-                "Eric"
-            ]
-        },
-        {
-            "cantidad": 10500.0,
-            "pagador": "Julio",
-            "beneficiarios": [
-                "Mauro"
+                "Aldichan"
             ]
         }
     ]
