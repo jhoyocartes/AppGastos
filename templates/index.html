@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reparto de Gastos</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-
 <body>
     <h1>Reparto de Gastos</h1>
 
@@ -16,8 +14,6 @@
         <input type="text" name="nombre" placeholder="Nombre de la persona" required>
         <input type="submit" value="Agregar">
     </form>
-
-
 
     <h2>Agregar Gasto</h2>
     <form action="{{ url_for('index') }}" method="POST">
@@ -31,37 +27,38 @@
         </select>
         
         <label>¿Con quién se reparte?</label><br>
-        <div>
-            {% for persona in personas %}
-                <div class="beneficiario-container">
-                    <input type="checkbox" name="beneficiarios" value="{{ persona }}" id="{{ persona }}">
-                    <label for="{{ persona }}" class="beneficiario-label">{{ persona }}</label>
-                    <form action="{{ url_for('eliminar_persona') }}" method="POST" class="beneficiario-form">
-                        <input type="hidden" name="nombre" value="{{ persona }}">
-                        <input type="submit" value="Eliminar" onclick="return confirm('¿Estás seguro de que quieres eliminar a {{ persona }}?');">
-                    </form>
-                </div>
-            {% endfor %}
-        </div>
+        {% for persona in personas %}
+            <input type="checkbox" name="beneficiarios" value="{{ persona }}">{{ persona }}<br>
+        {% endfor %}
         
         <input type="submit" value="Agregar Gasto">
     </form>
 
+    <h2>Personas</h2>
+    <div>
+        {% for persona in personas %}
+            <div class="persona-item">
+                <span>{{ persona }}</span>
+                <form action="{{ url_for('eliminar_persona') }}" method="POST" style="display:inline;">
+                    <input type="hidden" name="nombre" value="{{ persona }}">
+                    <button type="submit" class="delete">Eliminar</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
 
     <h2>Transacciones</h2>
     <ul>
         {% for deudor, acreedor, pago in transacciones %}
-        <li>{{ deudor }} le debe a {{ acreedor }} {{ pago }}</li>
+            <li>{{ deudor }} le debe a {{ acreedor }} {{ pago }}</li>
         {% endfor %}
     </ul>
 
     <h2>Historial de Gastos</h2>
     <ul>
         {% for gasto in gastos %}
-        <li>{{ gasto.pagador }} pagó {{ gasto.cantidad }} y lo repartió entre {{ gasto.beneficiarios | join(', ') }}
-        </li>
+            <li>{{ gasto.pagador }} pagó {{ gasto.cantidad }} y lo repartió entre {{ gasto.beneficiarios | join(', ') }}</li>
         {% endfor %}
     </ul>
 </body>
-
 </html>

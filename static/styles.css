@@ -1,6 +1,5 @@
-/* styles.css */
+/* static/styles.css */
 
-/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -8,63 +7,53 @@ body {
 }
 
 h1, h2 {
-    color: #00a859; /* Color verde Racing Club */
+    color: #0033a0; /* Color principal de Racing Club */
 }
 
-/* Estilos del formulario */
 form {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
-input[type="text"],
-input[type="number"],
-select {
-    width: 100%;
-    padding: 10px;
+input[type="text"], input[type="number"], select {
     margin-bottom: 10px;
+    padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
 }
 
-input[type="submit"] {
-    background-color: #00a859; /* Color verde Racing Club */
-    color: #ffffff;
-    padding: 10px 15px;
+input[type="submit"], button {
+    background-color: #0033a0; /* Color principal de Racing Club */
+    color: white;
     border: none;
+    padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    margin-right: 10px;
 }
 
-input[type="submit"]:hover {
-    background-color: #008d3d; /* Color verde más oscuro */
+input[type="submit"]:hover, button:hover {
+    background-color: #002a80; /* Color más oscuro de Racing Club */
 }
 
-/* Estilos de las personas */
-.beneficiario-container {
+button.delete {
+    background-color: #e60012; /* Color rojo para eliminar */
+}
+
+button.delete:hover {
+    background-color: #b3000a; /* Rojo más oscuro para hover */
+}
+
+/* Alinea el botón de eliminar al lado del nombre */
+.persona-item {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.beneficiario-label {
+.persona-item span {
     margin-right: 10px;
-    flex-grow: 1;
 }
 
-.beneficiario-form {
-    display: inline;
-}
-
-.beneficiario-form input[type="submit"] {
-    background-color: #d9534f; /* Rojo para el botón de eliminar */
-    color: #ffffff;
-}
-
-.beneficiario-form input[type="submit"]:hover {
-    background-color: #c9302c; /* Rojo más oscuro */
+.persona-item button {
+    margin-left: 10px;
 }
